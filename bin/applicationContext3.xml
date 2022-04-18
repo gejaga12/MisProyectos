@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+
+	<!-- POR DEFECTO EL SCOPE DE SPRING ES SINGLETON , PERO -->
+	<!-- PODEMOS MODIFICARLO A PROTOTYPE SI ASI LO REQUERIMOS -->
+
+
+	<!-- aui definimos el generador de beans que nos va a proporcionar los objetos 
+		, seria un contenedor -->
+	<!-- que nos proporciona beans de tipo empleado -->
+
+	<!-- aqui ponemos un id que seria un alias o identificador para darle un 
+		nombre al bean y tambien la ruta de lqa clase de la cual queremos -->
+	<!-- crear objetos -->
+
+	<!-- defino para este bean los metodos init y destroy -->
+	<bean id="miDirectorEmpleado" class="com.empresa.DirectorEmpleado" 
+	init-method="metodoInicial"
+	destroy-method="metodoFinal">
+		<constructor-arg ref="miInforme"></constructor-arg>
+	</bean>
+
+
+	<!-- creamos un bean para la inyeccion de dependencias -->
+	<bean id="miInforme" class="com.empresa.Informes">
+	</bean>
+
+</beans>
+
+
